@@ -1,0 +1,52 @@
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
+/**
+   A Class that builds and controls the scorecare frame.
+*/
+
+public class ScoreCardFrame extends JFrame
+{
+   private static int frameWidth = 600;
+   private static int frameHeight = 500;
+   
+   private JPanel scorePanel;
+   private JLabel nameLabel;
+   private JTextField nameField;
+   
+   public ScoreCardFrame()
+   {
+      setSize(frameWidth, frameHeight);
+   }
+   
+   private void createScorePanel()
+   {
+      JPanel scorePanel = new JPanel();
+      scorePanel.setLayout(new GridLayout(7,16));
+      
+      scorePanel.add(createTextField("Names ->", false));
+      
+      add(scorePanel, BorderLayout.CENTER);
+   }
+   
+   private JTextField createTextField(String text, boolean editable)
+   {
+      JTextField text = new JTextField(text);
+      text.setEditable(editable);
+      return text;
+   }
+}
